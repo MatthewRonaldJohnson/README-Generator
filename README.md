@@ -12,7 +12,9 @@
 
 ## Description
 
-This program allows a developer to quickly generate a README for their project.
+This program allows a developer to quickly generate a README for their project.  
+For a video walkthrough of how this program works check out this [video](https://www.youtube.com/watch?v=jX13MV1RMBE).  
+In the Output folder of this Repo you will find an example of a README generated using this program.
         
 ## Installation Instructions
 

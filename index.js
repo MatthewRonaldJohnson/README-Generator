@@ -131,9 +131,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            console.log(data.license)
             const badge = getBadge(data.license);
-            console.log(badge)
             const content = generateContent(data, badge);
             writeToFile(content);
         })

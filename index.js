@@ -30,14 +30,14 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Enter the testing instructions',
+        message: 'Enter the command the user should run to test the program',
         name: 'testing'
     },
     {
         type: 'list',
         message: 'Select a license for this project',
         name: 'license',
-        choices: ['MIT License', 'Apache License 2.0', 'BSD 3-Clause License', 'GNU GPL v3', 'Mozilla Public License 2.0']
+        choices: ['MIT License', 'Apache License 2.0', 'BSD 3-Clause License', 'GNU GPL License v3', 'Mozilla Public License 2.0', 'None']
     },
     {
         type: 'input',
@@ -60,6 +60,11 @@ function writeToFile(content) {
 }
 
 function generateContent({ title, desc, install, usageInfo, contribute, testing, license, github, email }, badge) {
+    let licenseStatment = `This program is licensed under the ${license}.`;
+    if (license = 'None'){
+        licenseStatment = 'This program is not covered under any software license.'
+    }
+
     return content = `
 # ${title}
 
@@ -92,15 +97,19 @@ ${contribute}
 
 ## Testing Instructions
 
+To Test this program run the following command: 
+
+\`\`\`
 ${testing}
+\`\`\`
 
 ## License
 
-${license}
+${licenseStatment}
 
 ## Questions
 
-Contact me via my github profile, [${github}](https://github.com/${github}), or email, [${email}](${email}).
+Contact me with any questions at my email: [${email}](${email}). Check out my other projects at my GitHub Profile: [${github}](https://github.com/${github}).
      `
 }
 
@@ -116,11 +125,14 @@ function getBadge(license) {
         case 'BSD 3-Clause License':
             badge = '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
             break;
-        case 'GNU GPL v3':
+        case 'GNU GPL License v3':
             badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
             break;
         case 'Mozilla Public License 2.0':
             badge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
+            break;
+        case 'None':
+            badge = '';
             break;
     }
     return badge;

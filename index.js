@@ -37,7 +37,7 @@ const questions = [
         type: 'list',
         message: 'Select a license for this project',
         name: 'license',
-        choices: ['Public Domain', 'Permissive', 'LGPL', 'CopyLeft', 'Proprietary']
+        choices: ['MIT License', 'Apache License 2.0', 'BSD 3-Clause License', 'GNU GPL v3', 'Mozilla Public License 2.0']
     },
     {
         type: 'input',
@@ -59,38 +59,71 @@ function writeToFile(content) {
     );
 }
 
-function generateContent({title, desc, install, usageInfo, contribute, testing, license, github, email}){
-     return content = `
-        # ${title}
+function generateContent({ title, desc, install, usageInfo, contribute, testing, license, github, email }, badge) {
+    return content = `
+# ${title}
 
-        ## Description
+${badge}
 
-        ${desc}
+## Table of Contents
+[Description](#Description)  
+[Installation Instructions](#Installation-Instructions)  
+[Usage Information](#Usage-Information)  
+[Contribution Guidelines](#Contribution-Guidelines)  
+[Testing Instructions](#Testing-Instructions)  
+[License](#License)  
+[Questions](#Questions)  
+
+## Description
+
+${desc}
         
-        ## Installation Instructions
+## Installation Instructions
 
-        ${install}
+${install}
 
-        ## Usage Information
+## Usage Information
 
-        ${usageInfo}
+${usageInfo}
 
-        ## Contribution Guidelines
+## Contribution Guidelines
 
-        ${contribute}
+${contribute}
 
-        ## Testing Instructions
+## Testing Instructions
 
-        ${testing}
+${testing}
 
-        ## License
+## License
 
-        ${license}
+${license}
 
-        ## Questions
+## Questions
 
-        Contact me via my github profile, ${github}, or email, ${email}
+Contact me via my github profile, [${github}](https://github.com/${github}), or email, [${email}](${email}).
      `
+}
+
+function getBadge(license) {
+    let badge;
+    switch (license) {
+        case 'MIT License':
+            badge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+            break;
+        case 'Apache License 2.0':
+            badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+            break;
+        case 'BSD 3-Clause License':
+            badge = '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
+            break;
+        case 'GNU GPL v3':
+            badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+            break;
+        case 'Mozilla Public License 2.0':
+            badge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
+            break;
+    }
+    return badge;
 }
 
 // TODO: Create a function to initialize app
@@ -98,7 +131,10 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            const content = generateContent(data);
+            console.log(data.license)
+            const badge = getBadge(data.license);
+            console.log(badge)
+            const content = generateContent(data, badge);
             writeToFile(content);
         })
 }

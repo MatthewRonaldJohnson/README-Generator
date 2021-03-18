@@ -1,31 +1,42 @@
 
-        # Testing
+# README Generator
 
-        ## Description
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-        We're testing stuff
+## Table of Contents
+[Description](#Description)  
+[Installation Instructions](#Installation-Instructions)  
+[Usage Information](#Usage-Information)  
+[Contribution Guidelines](#Contribution-Guidelines)  
+[Testing Instructions](#Testing-Instructions)  
+[License](#License)  
+[Questions](#Questions)  
+
+## Description
+
+This program generates a professional README file for your open source projects.
         
-        ## Installation Instructions
+## Installation Instructions
 
-        Install it
+Run inside of Node.js. Requires inquirer NPM package.
 
-        ## Usage Information
+## Usage Information
 
-        use it
+???
 
-        ## Contribution Guidelines
+## Contribution Guidelines
 
-        dont 
+It's pretty much finished tbh.
 
-        ## Testing Instructions
+## Testing Instructions
 
-        dont test
+It's still done.
 
-        ## License
+## License
 
-        CopyLeft
+GNU GPL v3
 
-        ## Questions
+## Questions
 
-        Contact me via my github profile, MRJ, or email, MRJ
+Contact me via my github profile, [MatthewRonaldJohnson](https://github.com/MatthewRonaldJohnson), or email, [MatthewRonaldJohson@gmail.com](MatthewRonaldJohson@gmail.com).
      

@@ -22,7 +22,8 @@ This program runs in Node.js and requires the inquirier npm package.
 
 ## Usage Information
 
-Upon running the program the user will be presented with multple command line prompt, after answering all of these their README.md will be stored in the output folder. NOTE: Runing the program again will overwrite any README currently in output, so remove that file and store it where you need it before running the program again.
+Upon running the program the user will be presented with multple command line prompt, after answering all of these their README.md will be stored in the output folder.  
+NOTE: Runing the program again will overwrite any README currently in output, so remove that file and store it where you need it before running the program again.
 
 ## License
 

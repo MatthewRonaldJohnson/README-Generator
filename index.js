@@ -61,7 +61,7 @@ function writeToFile(content) {
 
 function generateContent({ title, desc, install, usageInfo, contribute, testing, license, github, email }, badge) {
     let licenseStatment = `This program is licensed under the ${license}.`;
-    if (license = 'None'){
+    if (license === 'None'){
         licenseStatment = 'This program is not covered under any software license.'
     }
 
